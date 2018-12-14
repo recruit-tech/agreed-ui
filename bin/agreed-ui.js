@@ -37,9 +37,10 @@ if (command === 'build' && !argv.dest) {
   console.error(colo.red('[agreed-ui]: --dest option is required'))
   showHelp(1)
 }
+const npm = /^win/.test(process.platform) ? 'npm.cmd' : 'npm'
 
 const child = spawn(
-  'npm',
+  npm,
   [
     'run',
     command,
